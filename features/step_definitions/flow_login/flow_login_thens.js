@@ -34,3 +34,17 @@ Then('I should show must type user and password text', async function() {
     await testController.switchToMainWindow()
     await this.addScreenshotToReport()
 })
+
+Then('I should see the password', async function() {
+    await testController.switchToIframe(flowFrameId)
+    await testController.expect(flowLoginPage.pageElements.passwordInput().getAttribute("type")).contains('text')
+    await testController.switchToMainWindow()
+    await this.addScreenshotToReport()
+})
+
+Then('I should not see the password', async function() {
+    await testController.switchToIframe(flowFrameId)
+    await testController.expect(flowLoginPage.pageElements.passwordInput().getAttribute("type")).contains('password')
+    await testController.switchToMainWindow()
+    await this.addScreenshotToReport()
+})

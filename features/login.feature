@@ -27,3 +27,18 @@ Feature: Login
         And I click to login
         Then I should see wrong login text
         And I should not be logged in
+
+    Scenario: Hide and show password
+        Given I navigate to globo.com page
+        When I click on the user bar
+        Then I should see the login modal
+        When I type "wrong_user" account
+        Then I should not see the password
+        When I click to show the password
+        Then I should see the password
+
+    # Scenario: Forgot password
+    # Scenario: sign up
+    # Scenario: sign in
+    # Scenario: login google
+    # Scenario: login facebook

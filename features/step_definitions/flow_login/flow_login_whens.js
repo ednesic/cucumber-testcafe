@@ -19,3 +19,9 @@ When('I type {string} account', async user => {
     await testController.typeText(flowLoginPage.pageElements.passwordInput(), users[user].password)
     await testController.switchToMainWindow()
 })
+
+When('I click to show the password', async () => {
+    await testController.switchToIframe(flowFrameId)
+    await testController.click(flowLoginPage.pageElements.passwordViewButton())
+    await testController.switchToMainWindow()
+})
