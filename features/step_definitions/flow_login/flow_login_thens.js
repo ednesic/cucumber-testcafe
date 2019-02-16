@@ -2,7 +2,7 @@ const { Then } = require('cucumber');
 const flowLoginPage = require('../../support/pages/flow_login.js')
 const flowFrameId = '#login-popin-iframe'
 
-Then('I can see the login modal', async function() {
+Then('I should see the login modal', async function() {
     await testController.switchToIframe(flowFrameId)
     await testController.expect(flowLoginPage.pageElements.loginInput().exists).ok()
     await testController.expect(flowLoginPage.pageElements.loginInput().visible).ok()

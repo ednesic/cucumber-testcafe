@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "debug": "node --inspect=1337 --debug-brk --nolazy node_modules/cucumber/bin/cucumber-js --tags @debug --format json:./reports/report.json",
-    "test": "cucumber-js --format json:./reports/report.json"
+    "pretest" :"rm -rf reports/*",
+    "test": "cucumber-js --format json:./reports/report.json",
+    "posttest" :"node html_reporter/index.js"
   },
   "author": "",
   "license": "ISC",
