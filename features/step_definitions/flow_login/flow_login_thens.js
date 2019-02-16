@@ -16,7 +16,21 @@ Then('I should see the login modal', async function() {
     await testController.expect(flowLoginPage.pageElements.facebookButton().exists).ok()
     await testController.expect(flowLoginPage.pageElements.forgotPassword().innerText).contains('Esqueceu sua senha?')
     await testController.expect(flowLoginPage.pageElements.signUp().innerText).contains('CADASTRE-SE')
-    await testController.expect(flowLoginPage.pageElements.logingButton().innerText).contains('ENTRAR')
+    await testController.expect(flowLoginPage.pageElements.loginButton().innerText).contains('ENTRAR')
+    await testController.switchToMainWindow()
+    await this.addScreenshotToReport()
+})
+
+Then('I should see wrong login text', async function() {
+    await testController.switchToIframe(flowFrameId)
+    await testController.expect(flowLoginPage.pageElements.validationMessage().innerText).contains('Seu usuário ou senha estão incorretos.')
+    await testController.switchToMainWindow()
+    await this.addScreenshotToReport()
+})
+
+Then('I should show must type user and password text', async function() {
+    await testController.switchToIframe(flowFrameId)
+    await testController.expect(flowLoginPage.pageElements.validationMessage().innerText).contains('Preencha seu usuário e senha.')
     await testController.switchToMainWindow()
     await this.addScreenshotToReport()
 })

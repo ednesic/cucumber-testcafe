@@ -1,40 +1,44 @@
 const {Selector} = require('testcafe');
 
 exports.pageElements = {
-    loginInput: function() {
+    loginInput: () => {
         return Selector('#login')
             .with({ boundTestRun: testController })
     },
-    passwordInput: function() {
+    passwordInput: () => {
         return Selector('#password')
             .with({ boundTestRun: testController })
     },
-    forgotPassword: function() {
+    forgotPassword: () => {
         return Selector('a').withText('Esqueceu sua senha?')
             .with({ boundTestRun: testController })
     },
-    logingButton: function() {
+    loginButton: () => {
         return Selector('button').withText('ENTRAR')
             .with({ boundTestRun: testController })
     },
-    signUp: function () {
+    signUp: () => {
         return Selector('a').withText('CADASTRE-SE')
             .with({ boundTestRun: testController })
     },
-    facebookButton: function () {
+    facebookButton: () => {
         return Selector('button.facebook-button')
-            .with({ boundTestRun: testController })                
+            .with({ boundTestRun: testController })
     },
-    googleButton: function () {
+    googleButton: () => {
         return Selector('button.google-button')
-            .with({ boundTestRun: testController })        
+            .with({ boundTestRun: testController })
     },
-    passwordViewButton: function() {
+    passwordViewButton: () => {
         return Selector('button.field-password-view')
-            .with({ boundTestRun: testController })                
+            .with({ boundTestRun: testController })
     },
-    loginModalCloseButton: function() {
+    loginModalCloseButton: () => {
         return Selector('#login-popin-close')
-            .with({ boundTestRun: testController })                
+            .with({ boundTestRun: testController })
+    },
+    validationMessage: () => {
+        return Selector('.validation-message.login-field').find('.error')
+            .with({ boundTestRun: testController })
     }
 }

@@ -1,11 +1,11 @@
 const {Selector} = require('testcafe');
 
 exports.pageElements = {
-    userBar: function() {
+    userBar: () => {
         return Selector('#user-bar')
             .with({ boundTestRun: testController })
     },
-    loginPopin: function() {
+    loginPopin: () => {
         return Selector('#login-popin')
             .with({ boundTestRun: testController })
     }
