@@ -37,7 +37,7 @@ Feature: Login
         When I click to show the password
         Then I should see the password
 
-    # Scenario: Forgot password
+    # Scenario: Forgot password 
     # Scenario: sign up
     # Scenario: sign in
     # Scenario: login google
